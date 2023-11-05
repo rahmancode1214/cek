@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surat Cinta</title>
+    <style>
+        body {
+            font-family: fantasy ;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+        }
+        #loveLetter {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px;
+            padding: 10px;
+            background-image: url('https://cdn.pixabay.com/photo/2023/08/20/05/39/ai-generated-8201668_1280.jpg');
+            border: 2px solid #075eff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #ff0000;
+            text-align: left;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="showLoveLetter">Buka Surat Cinta</button>
+    <div id="loveLetter"></div>
+
+    <script>
+        const loveText = "Hai manusia baik, ";
+        const secondParagraph = "maaf ya, mungkin ini terakhir kalinya kita. Aku sudah memutuskan keputusan ini secara bulat. Iyah, kamu baik, orangnya cantik dan juga manja, tapi sekali lagi aku minta maaf ya sebesar-besarnya. Makasih untuk 2 tahunnya.Semoga dapat yang lebih ganteng, lebih kaya, lebih perhatian, dan juga lebih sempurna dari aku.pesan dari aku jaga diri baik baik buat suamimu nantinya terus juga jgn tinggalin sholat mkn dan kewajiban yg lain,lupakan dan buang hal hal yg bersangkutan dengan hal negatiff ambil positifnyaa oke.lupain aku yaa aku di sini gpp kok,klo emng bnr kita jodoh mungkin suatu saat nanti bkl bertemu lgi.aku mau perbaiki diri dan ibadahku dada sampai ketemu lain hari yaah Aku, Rahman, undur diri.";
+
+        const speed = 50; // Kecepatan penulisan dalam milidetik per karakter
+        let index = 0;
+        const loveLetterElement = document.getElementById("loveLetter");
+
+        function typeLoveLetter() {
+            if (index < loveText.length) {
+                loveLetterElement.innerHTML += loveText.charAt(index);
+                index++;
+                setTimeout(typeLoveLetter, speed);
+            } else {
+                loveLetterElement.innerHTML += "<br><br>";
+                index = 0;
+                typeSecondParagraph();
+            }
+        }
+
+        function typeSecondParagraph() {
+            if (index < secondParagraph.length) {
+                loveLetterElement.innerHTML += secondParagraph.charAt(index);
+                index++;
+                setTimeout(typeSecondParagraph, speed);
+            }
+        }
+
+        document.getElementById("showLoveLetter").addEventListener("click", function() {
+            loveLetterElement.innerHTML = "";
+            index = 0;
+            loveLetterElement.style.display = "block";
+            typeLoveLetter();
+        });
+    </script>
+</body>
+</html>
